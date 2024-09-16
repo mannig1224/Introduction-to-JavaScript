@@ -16,9 +16,13 @@ Task 1a - Voting Age
 Do the following:   
    1. Create a variable called votingAge and assign it a value
    2. Console log true if age is 18 or higher
-
    HINT: no function required
 */
+
+let votingAge = 18;
+if (votingAge >= 18) {
+  console.log("You are old enough to vote!");
+}
 
 
 
@@ -32,7 +36,12 @@ Do the following:
 
    HINT: no function required
 */
-
+var a = 4;
+var b = 2;
+if (a > b ) {
+   a = 20;
+   console.log(a);
+}
 
 
 
@@ -48,6 +57,10 @@ Do the following:
    HINT: look up the Number method
 */
 
+var numString = "1999";
+Number(numString);
+console.log(numString);
+
 
 
 
@@ -60,9 +73,11 @@ Do the following:
    3. Multiply a and b and return the answer
 */
 
-function multiply(/*add your code here*/){
+function multiply(a, b){
   /*add your code here*/
+  return a * b;
 }
+console.log(multiply(1,3));
 
 
 
@@ -76,9 +91,10 @@ Do the following:
  3. Return the newly calculated age
 */
 
-function dogYears(/*add your code here*/){
-  /*add your code here*/
+function dogYears(age){
+  return age * 7;
 }
+console.log(dogYears(3));
 
 
 
@@ -109,8 +125,30 @@ Puppies less than 1 year
 NOTE: If done correctly, a weight of 15 lbs and age of 1 year would return 0.44999999999999996
 */  
 
-function hungryDog(/*add your code here*/){
-  /*add your code here*/
+function hungryDog(pounds,age){
+  if (age >= 1) {
+    if (pounds <= 5) {
+      return pounds * .05;
+    } else if ( pounds >=6 && pounds <= 10) {
+      return pounds * .04;
+    } else if ( pounds >=11 && pounds <= 15) {
+      return pounds * .03;
+    } else if ( pounds > 15) {
+      return pounds * .02;
+    } 
+  } else if (age < 1){
+    if (age >= 2/12 && age < 4/12) {
+      return pounds * .10;
+    } 
+      else if ( age >= 4/12 && age <= .582) {
+      return pounds * .05;
+    } 
+      else if ( age >= .583) {
+      return pounds * .04;
+    } 
+  }
+
+  
 }
 
 
@@ -135,10 +173,33 @@ RULES OF THE GAME: Scissors beats Paper | Paper beats Rock | Rock beats Scissors
 
 HINT: Remember that the order in which we pass in our arguments matters when it comes to parameters
 */
-
-function game(user, computer){
-  /*add your code here*/
+var computerChoice = Math.random(); 
+if (computerChoice < .33 ) {
+  computerChoice = "rock";
+} else if ( computerChoice >= .33 && computerChoice < .66) {
+  computerChoice = "paper";
+} else if (computerChoice >= .67){
+  computerChoice = "scissors";
 }
+var user;
+
+function game(computer, user){
+  /*add your code here*/
+  
+  
+  if(user === computer) {
+    return "it's a tie";
+  } else if (user === "paper" && computer === "scissors" || 
+    user === "scissors" && computer === "rock" || 
+    user === "rock" && computer === "paper" ) {
+    return "you win!";
+  } else {
+    return "you lose!";
+  }
+  
+}
+  game(computerChoice, user);
+
 
 
 
@@ -153,8 +214,9 @@ Using the miles function below do the following:
 3. Return the number of miles
 */
 
-function miles(/*add your code here*/){
+function miles(kilometers){
   /*add your code here*/
+  return kilometers * 0.621371;
 }
 
 
@@ -167,8 +229,8 @@ Using the feet function below do the following:
 3. Return number of feet
 */
 
-function feet(/*add your code here*/){
-  /*add your code here*/
+function feet(cm){
+  return cm / 30.48;
 }
 
 
@@ -183,8 +245,11 @@ Using the annoyingSong function below do the following:
     "{number} bottles of soda on the wall, {number} bottles of soda, take one down pass it around {number left over} bottles of soda on the wall"
 */
 
-function annoyingSong(/*add your code here*/){
+function annoyingSong(number){
       /*add your code here*/
+      for(let i = number; i > 1; i--){
+        return `${i} bottles of soda on the wall, ${i} bottles of soda, take one down pass it around ${i - 1} bottles of soda on the wall`
+      }
 }
 
 
@@ -202,9 +267,20 @@ Using the grade function below do the following:
  60-69 should return 'you got a D'
  below should return 'you got an F'
 */
-
-function grade(/*Your Code here */){
+function grade(score){
 /*Your Code here */
+  if(score >= 90) {
+    return "you got an A"
+  } else if (score >= 80 && score <= 89) {
+    return "you got a B"
+  } else if (score >= 70 && score <= 79) {
+    return "you got a C"
+  } else if (score >= 60 && score <= 69) {
+    return "you got a D"
+  } else {
+    return "you got an F"
+  }
+
 }
 
 
